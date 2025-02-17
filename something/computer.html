@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>something i used chatgpt for</title>
+    <style>
+        h1 {
+            text-align: center;
+            font-family: cursive;
+            color: white;
+            margin-top: 50vh;
+            transform: translateY(-50%);
+        }
+        #goback {
+            font: 1em sans-serif;
+            border: 3px solid white;
+            padding: 10px 20px;
+            margin-left: 45%;
+
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Hi, move around a bit.</h1>
+    <a href="links.html" id="goback">Go back</a>
+
+    <script>
+        document.addEventListener("mousemove", (event) => {
+            let x = event.clientX;
+            let y = event.clientY;
+            let width = window.innerWidth;
+            let height = window.innerHeight;
+
+            let R = Math.round(((x - 100) * (y - 100)) / (width + height) * 25);
+            let G = Math.round(((x - 75) * (y - 75)) / (width * height) * 500);
+            let B = Math.round(((x * 5) + (y* 100)) / (width + height) * 50);
+
+            document.body.style.backgroundColor = `rgb(${10 + R/90}, ${100+G/40}, ${85 + B/20})`;
+
+        });
+    </script>
+
+</body>
+</html>
