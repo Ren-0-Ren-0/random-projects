@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Agency - Bosnia Tour</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            font-family:  Georgia, Georgia, 'Times New Roman', Times, serif;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .slideshow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('Bos1.jpg'), url('Bos3.jpg'), url('Bos4.jpg'), url('Bos5.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            animation: slide 60s infinite;
+            z-index: -1;
+        }
+
+        @keyframes slide {
+            0% { background-image: url('Bos1.jpg'); }
+            25% { background-image: url('Bos3.jpg'); }
+            50% { background-image: url('Bos4.jpg'); }
+            75% { background-image: url('Bos5.jpg'); }
+            100% { background-image: url('Bos1.jpg'); }
+        }
+
+        form {
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+            padding: 20px;
+            width: 60%;
+            background-color: rgba(0, 0, 0, 0.6);
+            border: 1px solid #333;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+            max-width: 100%;
+        }
+
+        label, input, select, textarea {
+            margin-bottom: 10px;
+            padding: 8px;
+            border-radius: 4px;
+        }
+
+        #submit {
+            background-color: rgb(32, 198, 38);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        input[type="text"], input[type="email"], input[type="date"], input[type="number"], select, textarea {
+            border: 2px solid #000000;
+        }
+
+        #Lang {
+            background: #ffffff;
+            border-radius: 5px;
+            outline: solid 1px #ffffff;
+            cursor: pointer;
+        }
+
+        #FormID {
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 8px;
+            margin-bottom: 10px;
+            width: 45%;
+        }
+
+        h1 {
+            font-family: cursive;
+            color: rgb(230, 255, 5);
+        }
+
+        h2 {
+            font-family: cursive;
+            color: rgb(255, 140, 33);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="slideshow"></div>
+
+    <form action="form.php" method="post">
+        <h1>Sign up for the Bosnia Tour!</h1>
+
+        <fieldset>
+            <legend><h2>Personal Information</h2></legend>
+            <label for="FormID">Form ID:</label>
+            <input type="text" name="FormID" id="FormID" placeholder="the value will be assigned when the server is back on" required readonly>
+            <br><br>
+
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" placeholder="Full Name" required autofocus>
+            <br><br>
+
+            <label for="date">Date of birth:</label>
+            <input type="date" name="date" id="date" required>
+            <br><br>
+
+            <label for="Exp">How many times have you taken one of our tours?</label>
+            <input type="number" name="Exp" id="Exp" min="0" max="18" placeholder="0" required>
+            <br><br>
+
+            <label for="Lang"> How proficient are you in the local language? </label>
+            <input type="range" name="Lang" id="Lang" min="0" max="50" step="10" required>
+            <br><br>
+
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" placeholder="example@gmail.com" required>
+            <br><br>
+        </fieldset>
+        <br>
+
+        <fieldset>
+            <legend><h2>Tour Preferences</h2></legend>
+            <label for="Ref">Referral code:</label>
+            <input type="password" name="Ref" id="Ref" placeholder="****-****-****-****-****-****">
+            <br><br>
+
+            <label for="subscribe">Subscribe to newsletter:</label>
+            <input type="checkbox" name="subscribe" id="subscribe">
+            <br><br>
+
+            <label for="tour-type">Choose Your Tour Experience:</label><br> <br>
+            <input type="radio" name="tour_type" id="standard" value="standard"/> <label for="standard">Standard Tour</label>
+            <br>
+            <input type="radio" name="tour_type" id="luxury" value="luxury"/> <label for="luxury">Luxury Tour</label>
+            <br><br>
+        </fieldset>
+        <br>
+
+        <fieldset>
+            <legend><h2>Food and Drink Preferences</h2></legend>
+            <label>Drinks</label> <br>
+            <input type="checkbox" id="coffee" /> <label for="coffee">Coffee</label>
+            <input type="checkbox" id="tea" /> <label for="tea">Tea</label>
+            <input type="checkbox" id="water" /> <label for="water">Water</label>
+            <input type="checkbox" id="juice"/> <label for="juice">Juice</label>
+            <input type="checkbox" id="soda"/> <label for="soda">Soda</label>
+            <input type="checkbox" id="lemonade"/> <label for="lemonade">Lemonade</label>
+            <input type="checkbox" id="smoothie"/> <label for="smoothie">Smoothie</label>
+            <br><br>
+
+            <label for="flavours">Choose your pastry Flavour:</label>
+            <select id="flavours">
+                <option value="chocolate">Chocolate</option>
+                <option value="vanilla">Vanilla</option>
+                <option value="strawberry">Strawberry</option>
+                <option value="blueberry">Blueberry</option>
+                <option value="caramel">Caramel</option>
+                <option value="lemon">Lemon</option>
+                <option value="raspberry">Raspberry</option>
+                <option value="red velver">Red Velvet</option>
+                <option value="carrot">Carrot</option>
+                <option value="coconut">Coconut</option>
+            </select>
+            <br><br>
+
+            <label for="dishes">Choose your First day's Midday meal:</label><br><br>
+            <select id="dishes" multiple size="6">
+                <option value="steak">Steak with Mashed Potatoes & Ginger Ale</option>
+                <option value="pasta">Alfredo Pasta with Garlic Bread & Mocktail</option>
+                <option value="pizza">Pizza with Garlic Knots & Hot Soup</option>
+                <option value="f_chkn">Fried Chicken with Coleslaw & Coke</option>
+                <option value="burger">Burger with Curly Fries & Cola</option>
+                <option value="sushi">Sushi Platter with Miso Soup & Green Tea</option>
+                <option value="tacos">Tacos with Nachos & Lemonade</option>
+                <option value="salad">Rice Bowl with Garden Salad & Orange Juice</option>
+                <option value="sandwich">Sandwich with Potato Wedges & Iced Tea</option>
+                <option value="noodles">Noodles with Spring Rolls & Bubble Tea</option>
+                <option value="biryani">Biryani with Raita & Lassi</option>
+                <option value="bbq_ribs">BBQ Ribs with Cornbread & Lemon Iced Tea</option>
+            </select>
+            <br><br>
+        </fieldset>
+
+        <fieldset>
+            <legend><h2>Feedback</h2></legend>
+            <label>Where should we do our next event?</label><br>
+            <input type="text" id="suggestions" list="Places" placeholder="Choose a place" required>
+            <datalist id="Places">
+                <option value="Paris, France">Home to the Eiffel Tower.</option>
+                <option value="Rome, Italy">Ancient city with the Colosseum.</option>
+                <option value="London, UK">Famous for Big Ben and historical landmarks.</option>
+                <option value="Barcelona, Spain">Stunning architecture by Gaudí.</option>
+                <option value="Amsterdam, Netherlands">Known for its canals.</option>
+                <option value="Vienna, Austria">Rich in classical music heritage.</option>
+                <option value="Berlin, Germany">Historic site of the Berlin Wall.</option>
+                <option value="Prague, Czech Republic">Famous for the Prague Castle.</option>
+                <option value="Athens, Greece">Home to the ancient ruins of the Acropolis.</option>
+                <option value="Florence, Italy">Cradle of the Renaissance with art museums.</option>
+            </datalist>
+            <br><br>
+
+            <label for="otherSugg">Give us more suggestions</label>
+                <input type="text" name="otherSugg" id="otherSugg" placeholder="Any other suggestions?">
+            <br><br>
+        </fieldset>
+
+        <br> <br>
+        <input type="button" value="Reset" onclick="location.reload()">
+        <br><br>
+        <input type="submit" value="Submit">
+
+
+    </form>
+</body>
+</html>
