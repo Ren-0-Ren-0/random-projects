@@ -2,7 +2,7 @@ import mysql.connector
 import requests
 from datetime import datetime, timezone, timedelta
 
-api_key = "d9e34f6d4de2d8782c70534db9a75d2a"
+api_key = "put_your_api_key_here"  # Replace with your OpenWeatherMap API key
 
 def get_city_coordinates(city_name):
     """Get latitude and longitude of a city using the current weather API"""
